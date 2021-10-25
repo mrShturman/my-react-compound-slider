@@ -457,6 +457,8 @@ class Ticks extends React.Component {
     var _this$props = this.props,
         children = _this$props.children,
         values = _this$props.values,
+        _this$props$minValue = _this$props.minValue,
+        minValue = _this$props$minValue === void 0 ? 0 : _this$props$minValue,
         _this$props$scale = _this$props.scale,
         scale = _this$props$scale === void 0 ? new LinearScale() : _this$props$scale,
         _this$props$count = _this$props.count,
@@ -467,7 +469,7 @@ class Ticks extends React.Component {
         activeHandleID = _this$props$activeHan === void 0 ? '' : _this$props$activeHan;
     var ticks = (values ? values : scale.getTicks(count)).map(value => ({
       id: "$$-".concat(value),
-      value,
+      value: value <= minValue ? minValue : value,
       percent: scale.getValue(value)
     }));
     var renderedChildren = children({
@@ -591,7 +593,10 @@ class DiscreteScale {
           r1 = _this$range[1],
           step = this.step;
 
-      if ((r1 - r0) * (x - d0) / (d1 - d0) > Math.floor((r1 - r0) / step) * step) return r1;
+      var slideLength = r1 - r0;
+      var fullSteps = Math.floor(slideLength / step) * step;
+      var rest = slideLength - fullSteps;
+      if ((r1 - r0) * (x - d0) / (d1 - d0) > fullSteps + Math.round(0.5 * rest)) return r1;
       var p = (clamp(x, d0, d1) - d0) / (d1 - d0);
       var b = step * Math.round(p * (r1 - r0) / step) + r0;
       return clamp(b, r0 < r1 ? r0 : r1, r1 > r0 ? r1 : r0);

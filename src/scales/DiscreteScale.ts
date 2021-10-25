@@ -32,7 +32,11 @@ export class DiscreteScale {
       step,
     } = this;
 
-    if ((r1 - r0) * (x - d0) / (d1 - d0) > (Math.floor((r1 - r0) / step) * step)) return r1;
+    const slideLength = r1 - r0;
+    const fullSteps = Math.floor(slideLength / step) * step;
+    const rest = slideLength - fullSteps;
+
+    if ((r1 - r0) * (x - d0) / (d1 - d0) > (fullSteps + Math.round(0.5 * rest))) return r1;
 
     const p = (clamp(x, d0, d1) - d0) / (d1 - d0);
     const b = step * Math.round((p * (r1 - r0)) / step) + r0;

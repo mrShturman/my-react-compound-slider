@@ -24,6 +24,7 @@ export interface TicksProps {
    * Invalid values will be coerced to the closet matching value in the domain.
    */
   values?: ReadonlyArray<number>;
+  minValue?: number;
   /** @ignore */
   getEventData?: GetEventData;
   /** @ignore */

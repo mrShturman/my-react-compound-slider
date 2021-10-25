@@ -10,6 +10,7 @@ export class Ticks extends Component<TicksProps> {
     const {
       children,
       values,
+      minValue = 0,
       scale = new LinearScale(),
       count = 10,
       getEventData = defaultGetEventData,
@@ -18,7 +19,7 @@ export class Ticks extends Component<TicksProps> {
 
     const ticks = (values ? values : scale.getTicks(count)).map((value) => ({
       id: `$$-${value}`,
-      value,
+      value: value <= minValue ? minValue : value,
       percent: scale.getValue(value),
     }));
 
