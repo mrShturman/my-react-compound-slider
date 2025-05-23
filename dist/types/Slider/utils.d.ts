@@ -1,7 +1,7 @@
 import React from 'react';
 import { DiscreteScale } from '../scales/DiscreteScale';
 import { HandleItem } from '../types';
-export declare const prfx = "react-compound-slider:";
+export declare const prfx = "my-react-compound-slider:";
 export declare function getSortByVal(reversed?: boolean): (a: HandleItem, b: HandleItem) => 1 | -1 | 0;
 export declare function getUpdatedHandles(handles: HandleItem[], updateKey: string, updateValue: number, reversed?: boolean): HandleItem[];
 export declare function getSliderDomain(slider: Element | null, vertical: boolean): number[];

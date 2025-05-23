@@ -4,7 +4,7 @@ import warning from 'warning';
 import { DiscreteScale } from '../scales/DiscreteScale';
 import { HandleItem } from '../types';
 
-export const prfx = 'react-compound-slider:';
+export const prfx = 'my-react-compound-slider:';
 
 export function getSortByVal(reversed: boolean = false) {
   return function sortByVal(a: HandleItem, b: HandleItem) {

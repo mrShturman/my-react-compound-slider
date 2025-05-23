@@ -10,7 +10,7 @@ import {
   mode3,
 } from './index';
 
-describe('react-compound-slider', () => {
+describe('my-react-compound-slider', () => {
   it('Slider should be exported', () => assert.ok(Slider));
   it('Rail should be exported', () => assert.ok(Rail));
   it('Handles should be exported', () => assert.ok(Handles));

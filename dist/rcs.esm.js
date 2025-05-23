@@ -107,7 +107,7 @@ function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
-var prfx = 'react-compound-slider:';
+var prfx = 'my-react-compound-slider:';
 function getSortByVal() {
   var reversed = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
   return function sortByVal(a, b) {
